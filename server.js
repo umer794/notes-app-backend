@@ -10,11 +10,12 @@ connectDB();
 
 const app = express();
 
-// CORS Fix - Ye EXACT code use karo
+// 🔥 YE EXACT CORS CODE DAALO 🔥
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "http://localhost:3000", 
+    "http://localhost:3000",
+    "https://notes-app-frontend-vp55.vercel.app",
     "https://notes-app-frontend-gc1p.vercel.app"
   ],
   credentials: true,
