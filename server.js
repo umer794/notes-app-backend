@@ -10,19 +10,23 @@ connectDB();
 
 const app = express();
 
-// CORS Setup - IMPORTANT!
+// CORS Fix - Ye EXACT code use karo
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000"],
-  credentials: true
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:3000", 
+    "https://notes-app-frontend-gc1p.vercel.app"
+  ],
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use(express.json());
 
-// Routes with /api prefix
 app.use("/api/auth", authRoutes);
 app.use("/api/notes", noteRoutes);
 
-// Root route for testing
 app.get("/", (req, res) => {
   res.json({ message: "Backend is working! ✅" });
 });
